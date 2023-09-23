@@ -46,4 +46,4 @@ Tip: Reading test specs is key to understanding the problem.
   problem
 
 
-[arrays]: https://github.com/appacademy/practice-for-week-05-dynamic-array-long-practice
+[arrays]: https://github.com/appacademy/practice-for-week-05-dynamic-array-long-practice# DynamicArrayPractice
