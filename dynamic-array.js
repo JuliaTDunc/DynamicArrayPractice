@@ -56,31 +56,51 @@ class DynamicArray {
   }
 
   resize() {
-   if(this.data.length === this.capacity) {
+  //  if(this.data.length === this.capacity) {
+  //   this.capacity *= 2;
+  //  }
+  // }
+
+  if (this.length === this.capacity) {
+
     this.capacity *= 2;
-   }
-  }
+    const newData = new Array(this.capacity);
 
+    for (let i = 0; i < this.length; i++) {
+        newData[i] = this.data[i];
+    }
+
+    this.data = newData;
 }
-let dynamicArr = new DynamicArray()
 
-dynamicArr.push(1);
-dynamicArr.push(2);
-dynamicArr.push(3);
+//this.length--;
+}
+}
 
-console.log(dynamicArr.length)//.to.equal(3);
+let  dynamicArr = new DynamicArray();
+console.log(dynamicArr.capacity)//.to.equal(4);
+console.log(dynamicArr.data.length)//.to.equal(4);
 
-console.log(dynamicArr.shift())//.to.equal(1);
+dynamicArr.push(10);
+dynamicArr.push(11);
 console.log(dynamicArr.length)//.to.equal(2);
 
-console.log(dynamicArr.shift())//.to.equal(2);
-console.log(dynamicArr.length)//.to.equal(1);
+dynamicArr.push(12);
+dynamicArr.push(13);
+console.log(dynamicArr.length)//.to.equal(4);
 
-console.log(dynamicArr.shift())//.to.equal(3);
-console.log(dynamicArr.length)//.to.equal(0);
+dynamicArr.resize();
 
-console.log(dynamicArr.shift())//.to.equal(undefined);
-console.log(dynamicArr.length)//.to.equal(0);
+console.log(dynamicArr.capacity)//.to.equal(8);
+console.log(dynamicArr.data.length)//.to.equal(8);
+console.log(dynamicArr.length)//.to.equal(4);
+
+console.log(dynamicArr.read(0))//to.equal(10);
+console.log(dynamicArr.read(1))//.to.equal(11);
+console.log(dynamicArr.read(2))//.to.equal(12);
+console.log(dynamicArr.read(3))//.to.equal(13);
+console.log(dynamicArr.read(4))//.to.equal(undefined);
+console.log(dynamicArr.data[4])//.to.equal(undefined);
 
 
 module.exports = DynamicArray;
