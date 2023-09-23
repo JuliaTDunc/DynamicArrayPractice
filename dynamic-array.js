@@ -14,6 +14,7 @@ class DynamicArray {
   push(val) {
     this.data[this.length] = val;
     this.length++
+    this.resize();
   }
 
 
@@ -44,6 +45,7 @@ class DynamicArray {
     }
     this.data[0] = val;
     this.length++;
+    this.resize();
   }
 
   indexOf(val) {
@@ -61,7 +63,7 @@ class DynamicArray {
   //  }
   // }
 
-  if (this.length === this.capacity) {
+  if (this.length >= this.capacity) {
 
     this.capacity *= 2;
     const newData = new Array(this.capacity);
@@ -77,30 +79,6 @@ class DynamicArray {
 }
 }
 
-let  dynamicArr = new DynamicArray();
-console.log(dynamicArr.capacity)//.to.equal(4);
-console.log(dynamicArr.data.length)//.to.equal(4);
-
-dynamicArr.push(10);
-dynamicArr.push(11);
-console.log(dynamicArr.length)//.to.equal(2);
-
-dynamicArr.push(12);
-dynamicArr.push(13);
-console.log(dynamicArr.length)//.to.equal(4);
-
-dynamicArr.resize();
-
-console.log(dynamicArr.capacity)//.to.equal(8);
-console.log(dynamicArr.data.length)//.to.equal(8);
-console.log(dynamicArr.length)//.to.equal(4);
-
-console.log(dynamicArr.read(0))//to.equal(10);
-console.log(dynamicArr.read(1))//.to.equal(11);
-console.log(dynamicArr.read(2))//.to.equal(12);
-console.log(dynamicArr.read(3))//.to.equal(13);
-console.log(dynamicArr.read(4))//.to.equal(undefined);
-console.log(dynamicArr.data[4])//.to.equal(undefined);
 
 
 module.exports = DynamicArray;
